@@ -1,0 +1,258 @@
+body.scrolled {
+  header {
+    position: fixed;
+    animation: scrolledHeader .5s ease;
+    box-shadow: 0px 8px 24px rgba(72, 72, 72, 0.1);
+    border-bottom: none;
+    background-color: #fff;
+
+    @include tablet {
+      animation: none;
+    }
+
+    a {
+      color: #000;
+
+      &.links {
+        &.active {
+          border-bottom: 3px solid #42504D;
+        }
+      }
+
+      &:hover {
+        color: #42504D;
+      }
+    }
+
+    button.default-button {
+      display: inline-block;
+    }
+  }
+
+  .header-mobile {
+    position: fixed;
+    animation: scrolledHeader .5s ease;
+    box-shadow: 0px 8px 24px rgba(72, 72, 72, 0.1);
+    border-bottom: none;
+    background-color: #fff;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    height: 60px;
+
+    button.burger svg rect {
+      fill: #000 !important;
+    }
+  }
+}
+
+@keyframes scrolledHeader {
+  from {
+    top: -90px
+  }
+
+  to {
+    top: 0;
+  }
+}
+
+.header-mobile {
+  position: relative;
+
+  button.burger {
+    display: none;
+
+    @include tablet {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: none;
+      background-color: transparent;
+      position: absolute;
+      left: 20px;
+      top: 10px;
+      z-index: 3;
+    }
+  }
+
+  a.whatsapp {
+    display: none;
+
+    @include tablet {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: none;
+      background-color: transparent;
+      position: absolute;
+      right: 20px;
+      top: 10px;
+      z-index: 3;
+
+      svg {        
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+
+header {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  border-bottom: 1px solid #C4C4C485;
+  font-family: $proxima;
+
+  @include tablet {
+    transform: translateY(-100%);
+
+    position: fixed;
+    background-color: #fff;
+    color: #000;
+    min-height: calc(var(--vh, 1vh) * 100);
+    padding-top: 75px;
+    padding-bottom: 75px;
+    transition: all ease .5s;
+    overflow: auto;
+    height: 100%;
+    
+    &.open {
+      transform: translateY(0%);
+      z-index: 11;
+    }
+
+    section {
+      overflow: auto;
+    }
+  }
+
+  
+
+  nav {
+    grid-column: span 12;
+    display: flex;
+    align-items: center;
+
+    @include tablet {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    a {
+      line-height: 90px;
+      text-decoration: none;
+      color: #fff;
+      font-size: 1rem;
+      margin-left: 40px;
+      font-weight: bold;
+      display: block;
+      height: 100%;
+
+      &.links {
+        &.active {
+          border-bottom: 3px solid #fff;
+        }
+      }
+      
+      @include laptop {
+        @include vw(30, 'margin-left');
+      }
+
+      @include tablet {
+        color: #000;
+        line-height: 30px;
+        margin-left: 0;
+        font-size: 1.15rem;
+        line-height: 3;
+      }    
+
+      &.only-tablet {
+        display: none;
+
+        @include tablet {
+          display: block;
+        }
+      }
+
+    }
+  }
+
+  ul {
+    display: flex;
+    list-style: none;
+    flex: 1;
+
+    @include tablet {
+      flex-direction: column;
+      margin-bottom: 30px;
+    }
+
+    li {
+      margin-right: 45px;
+      @include laptop {
+        @include vw(30, 'margin-right');
+      }
+    }
+
+    a {
+      margin-left: 0;
+
+      @include tablet {
+        font-size: 1.5rem;
+        line-height: 2.5;
+      }
+    }
+
+  }
+
+  button.close {
+    display: none;
+
+    @include tablet {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: none;
+      background-color: transparent;
+      position: absolute;
+      right: 20px;
+      top: 20px;
+    }
+  }
+  
+  button.default-button {
+    display: none;
+    margin-left: 40px;
+    width: 228px;
+    height: 48px;
+    font-size: 0.875rem;
+
+    @include vw(40, 'margin-left');
+      
+    @include laptop {
+      width: 208px;
+    }
+
+    @include tablet {
+      display: inline-block;
+      max-width: 350px;
+      width: 100%;
+      margin-left: 0px;
+      height: 52px;
+      font-size: 1rem;
+      margin-top: 30px;
+    }
+  }
+}

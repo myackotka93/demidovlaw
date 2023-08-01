@@ -1,0 +1,165 @@
+.help {
+  @include vw(80, 'padding-top');
+  @include vw(60, 'padding-bottom');
+
+  &-left {
+    grid-column-start: 2;
+    grid-column-end: 6;
+
+    @include tablet {
+      grid-column: 12 span;
+    }
+  }
+  
+  &-right {
+    grid-column-start: 7;
+    grid-column-end: 13;
+
+    @include tablet {
+      grid-column: 12 span;
+    }
+  }
+
+  h2 {
+    font-family: $playfair;
+    font-size: 3.5rem;
+    line-height: 1.1;
+    position: relative;
+    margin-bottom: 50px;
+
+    &::before {
+      background-color: #42504D;
+      top: (3.5 / 2) * 1rem;
+    }
+
+    @include laptop {
+      font-size: 3.25rem;
+    }
+
+    @include tablet {
+      font-size: 3rem;
+
+      &::before {
+        display: none;
+      }
+    }
+
+    @include mobile {
+      font-size: 2.5rem;
+    }
+  }
+
+  .default-button {
+    &.desktop {
+      @include tablet {
+        display: none;
+      }
+    }
+
+    &.tablet {
+      display: none;
+      @include tablet {
+        display: inherit;
+      }
+    }
+  }
+
+  &-collapse {
+    margin-bottom: 50px;
+
+    &-title {
+      font-size: 0.875rem;
+      color: #616468;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    &-block {      
+      font-family: $playfair;
+      font-size: 1.875rem;
+      color: #42504D;
+      overflow: hidden;
+      border-bottom: 1px solid #C4C4C4;
+      position: relative;
+
+      @include laptop {
+        font-size: 1.5rem;
+      }
+
+      @include mobile {
+        font-size: 1.15rem;
+      }
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      &-header {
+        @include vw(95, 'height');
+    
+        @include tablet {
+          @include vw(125, 'height');
+        }
+
+        &:hover {
+          color: #000000;
+        }
+
+        @include mobile {
+          height: 56px;
+        }
+
+        max-height: 95px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+      }
+
+      &-body {
+        opacity: 0;
+        height: 0;
+
+        @include mobile {
+          height: auto;
+        }
+
+        &-content {
+          font-family: $proxima;
+          padding-bottom: 30px;
+
+          ul {
+            @include vw(50, 'padding-left');
+            line-height: 1.7;
+            font-size: 1.125rem;
+            color: #616468;
+
+            li {
+              padding-bottom: 20px;
+            }
+
+            @include mobile {
+              font-size: 1rem;
+              line-height: 1.5;
+            }
+          }
+        }
+        // height: 0;
+      }
+
+      &-arrow {
+        position: absolute;
+        right: 0;
+        @include vw(47, 'top');
+
+        @include tablet {
+          @include vw(62, 'top');
+        }
+
+        @include mobile {
+          top: 28px;
+        }
+        display: flex;
+      }
+    }
+  }
+}

@@ -1,0 +1,76 @@
+.efir {
+  background: #23272A;
+  @include vw(120, 'padding-top');
+
+  &-body {
+    grid-column: span 12;
+    text-align: center;
+
+    color: #fff;
+
+    @include mobile {
+      text-align: left;
+    }
+
+    h2 {
+      font-size: 3.5rem;
+      line-height: 1.1;
+      font-family: $playfair;
+      max-width: 1120px;
+      margin: auto;
+      margin-bottom: 40px;
+
+      @include laptop {
+        font-size: 3rem;
+      }
+
+      @include tablet {
+        font-size: 2.5rem;
+      }
+
+      @include mobile {
+        font-size: 2rem;
+        margin-bottom: 20px;
+      }
+    }
+
+    p {
+      font-size: 1.5rem;
+      line-height: 1.6;
+      max-width: 750px;
+      margin: auto;
+      margin-bottom: 40px;
+
+      @include laptop {
+        font-size: 1.4rem;
+      }
+
+      @include tablet {
+        font-size: 1.375rem;
+      }
+
+      @include mobile {
+        font-size: 1.15rem;
+      }
+    }
+
+    &-video {
+      width: (100 / 12 * 10) * 1%;
+      margin: auto;
+      margin-bottom: -25%;
+
+      @include mobile {
+        width: 100%;
+      }
+      
+      
+      iframe {
+        position:absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+      }
+    }
+  }
+}

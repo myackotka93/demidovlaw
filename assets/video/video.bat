@@ -1,0 +1,1 @@
+ffmpeg -i bg.mp4 -map_metadata -1 -an -c:v libx264 -crf 24 -threads 8 -preset veryslow -profile:v main -pix_fmt yuv420p -movflags +faststart -vf "scale=trunc(iw/2)*2:trunc(ih/2)*2" video.h264.mp4

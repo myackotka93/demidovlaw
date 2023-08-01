@@ -1,0 +1,274 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+$proxima: 'Proxima Nova Light';
+$playfair: 'Playfair Display';
+
+@mixin vw($height, $property) {
+  #{$property}: $height / 1920 * 100vw; 
+
+  @include tablet() {
+    #{$property}: $height / 1300 * 100vw; 
+  }
+}
+@function vh($height) {
+  @return $height / 1080 * 100vh; 
+}
+
+@mixin laptop {
+  @media (max-width: 1500px) {
+    @content();
+  }
+}
+@mixin tablet {
+  @media (max-width: 1100px) {
+    @content();
+  }
+}
+@mixin mobile {
+  @media (max-width: 750px) {
+    @content();
+  }
+}
+
+html {
+  font-size: 16px;
+  line-height: 1.4;
+  font-family: $proxima;
+  font-weight: 400;
+
+  @include laptop() {
+    font-size: 15px;
+  }
+
+  @include tablet {
+    font-size: 14px;
+  }
+
+  @include mobile {
+    font-size: 13px;
+  }
+}
+
+body { 
+  position: relative;
+}
+
+.img-container {
+  display: flex;
+  align-items: center;
+}
+img {
+  width: 100%;
+}
+h1, h2 {
+  font-weight: 500;
+}
+
+.line-before {
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    height: 1px;
+    background: #FFFFFF;
+    opacity: 0.5;
+    width: 60px;
+    right: calc(100% + 30px);
+    top: calc(50% - 1px);
+
+    @include tablet() {
+      width: 40px;
+    }
+  }
+}
+button {
+  outline: none;
+  cursor: pointer;  
+
+  &.default-button {
+    width: 360px;
+    height: 70px;
+    border: none;
+    background: #42504D;
+    font-size: 1.15rem;
+    color: #fff;
+    transition: all .2s ease;
+
+    &:hover {
+      background: #23272A;
+    }
+
+    @include laptop() {
+      font-size: 1em;
+      width: 300px;
+      height: 60px;
+    }
+
+    @include mobile() {
+      width: 100%;
+      height: 52px;
+    }
+  }
+}
+
+@import './fonts/playfair/playfair.css';
+@import './fonts/proxima/proxima.css';
+@import './grid.scss';
+@import './video.scss';
+@import './header.scss';
+@import './about.scss';
+@import './help.scss';
+@import './actions.scss';
+@import './efir.scss';
+@import './trust.scss';
+@import './footer.scss';
+
+@import "~@material/textfield/dist/mdc.textfield.css";
+@import "~@material/checkbox/dist/mdc.checkbox.css";
+@import "~@material/form-field/dist/mdc.form-field.css";
+
+@import './text.scss';
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 11;
+  display: none;
+
+  &.open {
+    display: block;
+  }
+
+  &-close {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+  }
+
+  &-body {
+    max-width: 750px;
+    width: 90%;
+    @include vw(60, 'padding');
+    background-color: #fff;
+    position: relative;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    &-content {      
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    @include mobile() {
+      width: 100%;
+      height: 100%;
+
+      padding-top: 70px;
+      overflow: auto;
+    }
+
+    &-close {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: none;
+      background-color: transparent;
+      position: absolute;
+      right: 20px;
+      top: 20px;
+    }
+
+    h3 {      
+      font-family: $playfair;
+      font-size: 2.25rem;
+      font-weight: normal;
+      @include vw(50, 'margin-bottom');
+
+      @include mobile() {
+        font-size: 2rem;
+      }
+
+      &.finish {
+        @include vw(15, 'margin-bottom');
+      }
+    }
+
+    .mdc-text-field {        
+      @include vw(40, 'margin-bottom');
+    }
+    
+    .submit {
+      display: flex;
+
+      @include mobile() {
+        flex-direction: column;
+      }
+
+      > * {
+        width: 50%;
+        @include mobile() {
+          width: 100%;
+        }
+      }
+
+      .mdc-checkbox__background {
+        background: #E0E3EA !important;          
+        border: 2px solid #E0E3EA !important;
+      }
+
+      .mdc-checkbox__native-control:enabled:checked ~ .mdc-checkbox__background {
+        border-color: #42504D !important;
+      }
+
+      .mdc-checkbox__checkmark {
+        color: #42504D !important;
+      }
+
+      label {
+        font-size: 0.875rem;
+        color: #464E65;
+        letter-spacing: -0.2px;
+      }
+
+      a {
+        text-decoration: none;
+        color: #464E65;
+
+        &:hover {
+          color: #000;
+        }
+      }
+
+      button {
+        background: #E0E3EA;
+        color: #7A7A7A;
+        font-size: 20px;
+        line-height: 24px;
+        border: none;
+        height: 70px;
+      }
+    }
+
+    form:valid {
+      button {
+        background: #42504D;
+        color: #fff;
+      }
+    }
+  }
+}

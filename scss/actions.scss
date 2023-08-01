@@ -1,0 +1,145 @@
+.actions {
+  @include vw(130, 'padding-top');
+  @include vw(130, 'padding-bottom');
+  overflow: hidden;
+
+  &-h2 {
+    grid-column: span 4;
+    @include tablet {
+      grid-column: span 6;
+    }
+    @include mobile {
+      grid-column: span 12;
+    }
+  }
+
+  h2 {    
+    font-size: 3.5rem;
+    font-family: $playfair;
+    margin-bottom: 50px;
+
+    @include laptop {
+      font-size: 3rem;
+    }
+    
+
+    @include tablet {
+      font-size: 2.8rem;
+    }
+
+    @include mobile {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+    }
+  }
+
+  &-slider {    
+    grid-column: span 12;
+    margin: 0 -15px;
+    position: relative;
+
+    .swiper-container {
+      overflow: visible;
+
+      .swiper-slide {
+        padding: 15px;
+        width: 25%;
+
+        @include tablet {
+          width: 33.33%;
+        }
+
+        @include mobile {
+          width: 242px;
+        }
+
+        &-content {
+          box-shadow: 0px 8px 24px rgba(72, 72, 72, 0.1);
+          border-radius: 15px;
+          max-height: 360px;
+          @include vw(360, 'height');
+          position: relative;
+
+          @include mobile {
+            height: 212px;
+          }
+          .text {
+            font-size: 1.375rem;
+            color: #616468;
+            position: absolute;
+
+            @include vw(30, 'left');
+            @include vw(30, 'bottom');
+            @include vw(30, 'padding-right');
+            @include laptop {
+              font-size: 1.2rem;
+            }
+            @include tablet {
+              font-size: 1rem;
+            }
+            @include mobile {
+              left: 20px;
+              bottom: 20px;
+              padding-right: 20px;
+            }
+          }
+
+          .number {
+            font-family: $playfair;
+            font-size: 5rem;
+            @include vw(26, 'padding-left');
+
+            @include laptop {
+              font-size: 4.5rem;
+            }
+            @include tablet {
+              font-size: 4rem;
+            }
+            @include mobile {
+              padding-left: 18px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .navigation {
+    position: absolute;
+    bottom: calc(100% + 60px);
+    right: 15px;
+    display: flex;
+
+    @include mobile {
+      display: none;
+    }
+
+    > * {
+      position: static;
+      
+      @include vw(60, 'width');
+      @include vw(60, 'height');
+
+      background: #42504D;
+      border-radius: 50%;
+      margin: 0;
+
+      @include vw(15, 'margin-left');
+      @include vw(15, 'margin-right');
+      
+
+      &:after {
+        display: none;
+      }
+
+      &:hover {
+        background: #23272A;
+      }
+
+      &.swiper-button-disabled {
+        background: #E0E3EA;
+        opacity: 1;
+      }
+    }
+  }
+}

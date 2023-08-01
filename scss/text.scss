@@ -1,0 +1,80 @@
+.mdc-text-field {
+  margin-bottom: 40px;
+  padding-left: 0;
+  background-color: #ffffff !important;
+}
+.mdc-text-field:hover::before, .mdc-text-field--filled.mdc-ripple-upgraded .mdc-text-field__ripple::before {
+  opacity: 0;
+}
+.mdc-text-field__input {
+  padding-left: 0;
+}
+.mdc-text-field .mdc-floating-label {
+  left: 0;
+}
+.mdc-text-field .mdc-floating-label--float-above {
+  font-weight: 600;
+}
+.mdc-text-field:before {
+  background-color: transparent !important;
+}
+.mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label {
+  color: var(--mdc-theme-primary);
+}
+.mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-floating-label {
+  color: var(--mdc-theme-error);
+}
+.mdc-text-field:not(.mdc-text-field--disabled):not(.mdc-text-field--textarea) {
+  background-color: #ffffff !important;
+  width: 100%;
+}
+.mdc-floating-label {
+  font-family: "Proxima Nova Regular";
+}
+// .mdc-text-field .mdc-floating-label--float-above {
+//   -webkit-transform: translateY(-106%) scale(0.75);
+//   top: 1px;
+//   transform: translateY(0) scale(0.75);
+// }
+.mdc-text-field__input:-webkit-autofill + .mdc-floating-label {
+  transform: translateY(-106%) scale(0.75);
+}
+
+.mdc-text-field--filled .mdc-line-ripple::after {
+  border-bottom-color: #42504D;
+}
+.mdc-checkbox__native-control:enabled:checked ~ .mdc-checkbox__background {
+  border-color: #160ffd !important;
+  background-color: transparent;
+}
+.mdc-checkbox__checkmark {
+  color: #160ffd !important;
+  width: 80%;
+  left: 2px;
+  top: 2px;
+}
+.mdc-checkbox {
+  width: 24px;
+  height: 24px;
+  padding-left: 0;
+}
+.mdc-form-field {
+  margin-right: 60px;
+  font-family: "Proxima Nova Regular";
+}
+.mdc-checkbox__background {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  left: 0 !important;
+}
+.mdc-checkbox .mdc-checkbox__native-control:checked ~ .mdc-checkbox__background::before,
+.mdc-checkbox .mdc-checkbox__native-control:indeterminate ~ .mdc-checkbox__background::before {
+  background-color: transparent;
+}
+
+.mdc-text-field--textarea .mdc-text-field__input {
+  margin-top: 16px !important;
+  padding-left: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+}
